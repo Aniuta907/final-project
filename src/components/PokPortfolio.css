@@ -1,0 +1,21 @@
+.pokCard {
+	outline: 2px solid Aquamarine;
+	margin: 10px;
+	padding: 7px;
+}
+
+.pokDeckWr{
+	margin-left: 30px;
+}
+
+.pokName {
+	color: #01796f;
+}
+
+.pokImg{
+	width: 200px;
+}
+
+.catchBtn{
+	background-color: #01796f;
+}
