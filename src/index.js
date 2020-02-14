@@ -1,15 +1,19 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
+import * as $ from 'jquery';
 import Popper from 'popper.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/js/dist/util';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
-/*import 'bootstrap-toggle.min.css';
-import 'bootstrap-toggle.min.js';*/
+import '../node_modules/bootstrap-toggle/css/bootstrap-toggle.min.css';
+import '../node_modules/bootstrap-toggle/css/bootstrap-toggle.css';
+//import * as bootstrapToggle from '../node_modules/bootstrap-toggle/js/bootstrap-toggle.js';
 
+window.$ = $;
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
