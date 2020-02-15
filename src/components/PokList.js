@@ -1,15 +1,18 @@
 import React from 'react';
 
-import { Plashka } from './Plashka.js';
+import { Plashka } from "./Plashka";
 
-import * as data from '../db.json';
+import './PokList.css';
 
-export function PokList() {
+
+export function PokList({ pokemons, onClick }) {
+	const pokemons1 = pokemons.slice(0, 6); // todo pagination
 	return (
-		<ul>
-			{data.pokemons.slice(0, 9).map(function(item) {
-				return <Plashka>{item.name}</Plashka>;
-			})}
-		</ul>
+			<div class="card-deck-wrapper" className="card-deck-wrapper pokDeckWr">
+			<div class="card" className="card pokCard">
+				{pokemons1.map(pokemon =>(<Plashka pokemon={pokemon} onClick={onClick}/>))}
+			</div>
+			</div>
+
 	);
 }

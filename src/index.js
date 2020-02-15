@@ -1,18 +1,17 @@
 import * as $ from 'jquery';
-import Popper from 'popper.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/js/dist/util';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import './index.css';
-import App from './App';
-import App2 from './App2';
-import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap-toggle/css/bootstrap-toggle.min.css';
 import '../node_modules/bootstrap-toggle/css/bootstrap-toggle.css';
 //import * as bootstrapToggle from '../node_modules/bootstrap-toggle/js/bootstrap-toggle.js';
+
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+import './index.css';
 
 window.$ = $;
 ReactDOM.render(<App />, document.getElementById('root'));

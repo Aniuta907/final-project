@@ -6,7 +6,7 @@ import './PokPage.css';
 
 import pokPicture1 from '../pokemons/1.png';
 
-export function PokPage() {
+export function PokPage({ pokemon }) {
 	return (
 		<React.Fragment>
 			<div className="card-deck-wrapper" className="pokDeckWr">

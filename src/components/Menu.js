@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link
+  } from "react-router-dom";
 
 import styles from './Styles.js';
 
@@ -8,6 +14,11 @@ export class Menu extends Component {
 		this.state = {
 			show: false
 		};
+
+		const menuOptions =this.props.menuOptions;
+		const homeOption = menuOptions.pop();
+		menuOptions.unshift(homeOption);
+		this.menuOptions = menuOptions;
 	}
 	render() {
 		return (
@@ -30,16 +41,11 @@ export class Menu extends Component {
 
 				<div className={`collapse ${this.state.show? "show": ""} navbar-collapse`} id="collapsibleNavbar">
 					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link" style={styles.item} href="#">
-								Main page
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" style={styles.item} href="#">
-								Caught pokemons
-							</a>
-						</li>
+					{this.menuOptions.map(option => <li class="nav-item">
+													<div class="nav-link" style={styles.item}>
+														<Link to={option.path}>{option.name}</Link>
+													</div>
+												</li>)}
 					</ul>
 				</div>
 			</nav>
