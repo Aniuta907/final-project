@@ -15,7 +15,7 @@ import '../node_modules/bootstrap-toggle/css/bootstrap-toggle.css';
 //import * as bootstrapToggle from '../node_modules/bootstrap-toggle/js/bootstrap-toggle.js';
 
 window.$ = $;
-ReactDOM.render(<App2 />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

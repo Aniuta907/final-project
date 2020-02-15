@@ -1,20 +1,26 @@
 import React from 'react';
+import { Provider } from 'react-redux'
 
-import './App.css';
+import { store } from './store.js'
 
 import { Menu } from './components/Menu.js';
 import { PokList } from './components/PokList.js';
+import { PokPortfolioContainer } from './components/PokPortfolioContainer.js';
 import { PokPortfolio } from './components/PokPortfolio.js';
+
+import './App.css';
 
 function App() {
 	return (
+		<Provider store={store}>
 		<div className="App">
 			<header />
 			<body>
 				<Menu />
-				<PokPortfolio />
+				<PokPortfolioContainer />
 			</body>
 		</div>
+		</Provider>
 	);
 }
 
