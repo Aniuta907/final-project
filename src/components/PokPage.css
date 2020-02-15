@@ -1,0 +1,22 @@
+.pokName {
+	color: #01796f;
+}
+
+.pokImg {
+	width: 300px;
+}
+
+.divImg {
+	width: 330px;
+	outline: 2px solid Aquamarine;
+	padding: 10px;
+	margin-top: 20px;
+}
+
+.divInf {
+	width: 400px;
+	align-items: center;
+	vertical-align: middle;
+	margin-top: 20px;
+	padding: 20px;
+}

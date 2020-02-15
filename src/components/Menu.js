@@ -32,12 +32,12 @@ export class Menu extends Component {
 					<ul class="navbar-nav">
 						<li class="nav-item">
 							<a class="nav-link" style={styles.item} href="#">
-								Главная страница
+								Main page
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" style={styles.item} href="#">
-								Пойманные покемоны
+								Caught pokemons
 							</a>
 						</li>
 					</ul>
