@@ -6,21 +6,22 @@ export function Plashka({ pokemon, onClick }) {
   const { name, picture, catched, id } = pokemon;
   return (
 		<React.Fragment>
-    <div className="card card-block text-center">
-      <a href="#" className="card-link" className="card-header">
-        Pokemon
-      </a>
+    <div class="card" className="card pokCard">
+      <div className="card card-block text-center">
+        <a href="#" className="card-link" className="card-header">
+          Pokemon
+        </a>
+      </div>
+
+      <div className="card card-block text-center">
+        <img src={picture} className="pokImg" alt="Card image" />
+        <p class="card-text" className="pokName card-text">
+          name: {name}
+        </p>
+        <button className="btn btn-primary" disabled={catched} onClick={(event) => onClick(id)}>
+          Catch
+        </button>
+      </div>
     </div>
-
-    <div className="card card-block text-center">
-      <img src={picture} className="pokImg" alt="Card image" />
-      <p class="card-text" className="pokName card-text">
-        name: {name}
-      </p>
-      <button className="btn btn-primary" disabled={catched} onClick={(event) => onClick(id)}>
-        Catch
-      </button>
-
-</div>
 </React.Fragment>);
 }

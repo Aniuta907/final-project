@@ -2,19 +2,17 @@
 	outline: 2px solid Aquamarine;
 	margin: 10px;
 	padding: 7px;
-}
-
-.pokDeckWr{
-	margin-left: 30px;
-	margin-right: 30px;
+	max-width: 300px;
+	min-width: 300px;
 }
 
 .pokName {
 	color: #01796f;
 }
 
-.pokImg{
-	width: 200px;
+.pokImg {
+	max-width:100%;
+	max-height:100%;
 }
 
 .catchBtn{
