@@ -1,17 +1,59 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ReactPaginate from 'react-paginate';
 
 import { Plashka } from "./Plashka";
 
 import './PokList.css';
 
-
-export function PokList({ pokemons, onClick }) {
-	const pokemons1 = pokemons.slice(0, 8); // todo pagination
+const Pagination = (props) => {
 	return (
-		<div class="card-deck-wrapper" className="card-deck-wrapper pokDeckWr">
-			<div class="card-deck">
-				{pokemons1.map(pokemon =>(<Plashka pokemon={pokemon} onClick={onClick}/>))}
-			</div>
-		</div>
-	);
+	<ReactPaginate
+	  previousLabel={'previous'}
+	  nextLabel={'next'}
+	  breakLabel={'...'}
+	  breakClassName={'break-me'}
+	  pageCount={props.pageCount}
+	  marginPagesDisplayed={2}
+	  pageRangeDisplayed={5}
+	  onPageChange={props.handlePageClick}
+	  containerClassName={'pagination'}
+	  subContainerClassName={'pages pagination'}
+	  activeClassName={'active'}
+	  />
+	
+	 )
+	}
+
+
+export class PokList extends Component {
+	state = {
+		selectedPage: 0
+	   }
+	  
+	  handlePageClicked = data => {
+		let selected = data.selected;
+		this.setState({
+		  selectedPage: selected
+		})
+		console.log(selected)
+	  };
+
+	render() {
+		const { pokemons, onClick } = this.props;
+		const pokemons1 = pokemons.slice(this.state.selectedPage*8, this.state.selectedPage*8 + 8);
+		console.log(Math.ceil(pokemons.length/8))
+		return (
+			<React.Fragment>
+				<Pagination
+				handlePageClick={this.handlePageClicked}
+				pageCount={Math.ceil(pokemons.length/8)}
+				/>
+				<div class="card-deck-wrapper" className="card-deck-wrapper pokDeckWr">
+					<div class="card-deck">
+						{pokemons1.map(pokemon =>(<Plashka pokemon={pokemon} onClick={onClick}/>))}
+					</div>
+				</div>
+			</React.Fragment>
+		);
+	}
 }
