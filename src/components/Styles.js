@@ -1,5 +1,5 @@
 const brand = {
-	color: "LightGreen"
+	color: "Aquamarine"
 }
 
 const item = {

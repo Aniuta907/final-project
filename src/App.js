@@ -1,13 +1,8 @@
 import React from 'react';
-import { Provider } from 'react-redux'
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link
-  } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import { store } from './store.js'
+import { store } from './store.js';
 
 import { Menu } from './components/Menu.js';
 import { PokListContainer } from './components/PokListContainer.js';
@@ -20,34 +15,32 @@ function App() {
 		{
 			path: '/pokemon',
 			name: 'Pokemon',
-			component: <PokPageContainer />,
+			component: <PokPageContainer />
 		},
 		{
-			path: '/catched',
-			name: 'Catched pokemons',
-			component: <PokListContainer />,
+			path: '/caught',
+			name: 'Caught pokemons',
+			component: <PokListContainer />
 		},
 		{
 			path: '/',
 			name: 'Home',
-			component: <PokListContainer />,
-		},
+			component: <PokListContainer />
+		}
 	];
 	return (
 		<Router>
-		<Provider store={store}>
-		<div className="App">
-			<header />
-			<body>
-				<Menu menuOptions={menuOptions}/>
-				<Switch>
-					{menuOptions.map(option => <Route path={option.path}>
-													{option.component}
-												</Route>)}
-				</Switch>
-			</body>
-		</div>
-		</Provider>
+			<Provider store={store}>
+				<div className="App">
+					<header />
+					<body>
+						<Menu menuOptions={menuOptions} />
+						<Switch>
+							{menuOptions.map((option) => <Route path={option.path}>{option.component}</Route>)}
+						</Switch>
+					</body>
+				</div>
+			</Provider>
 		</Router>
 	);
 }
