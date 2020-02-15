@@ -5,13 +5,13 @@ import { Plashka } from "./Plashka";
 import './PokPortfolio.css';
 
 
-export function PokPortfolio({ pokemons }) {
+export function PokPortfolio({ pokemons, onClick }) {
 	return (
 			<div class="card-deck-wrapper" className="card-deck-wrapper pokDeckWr">
 			<div class="card" className="card pokCard">
-				<Plashka name={pokemons[0].name} pic={pokemons[0].picture}/>
-				<Plashka name={pokemons[1].name} pic={pokemons[1].picture}/>
-				<Plashka name={pokemons[2].name} pic={pokemons[2].picture}/>
+				<Plashka pokemon={pokemons[0]} onClick={onClick}/>
+				<Plashka pokemon={pokemons[1]} onClick={onClick}/>
+				<Plashka pokemon={pokemons[2]} onClick={onClick}/>
 			</div>
 			</div>
 

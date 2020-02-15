@@ -2,7 +2,8 @@ import React from "react";
 
 import './Plashka.css';
 
-export function Plashka({ name, pic }) {
+export function Plashka({ pokemon, onClick }) {
+  const { name, picture, catched, id } = pokemon;
   return (
 		<React.Fragment>
     <div className="card card-block text-center">
@@ -12,13 +13,13 @@ export function Plashka({ name, pic }) {
     </div>
 
     <div className="card card-block text-center">
-      <img src={pic} className="pokImg" alt="Card image" />
+      <img src={picture} className="pokImg" alt="Card image" />
       <p class="card-text" className="pokName card-text">
         name: {name}
       </p>
-      <a href="#" className="btn btn-primary">
+      <button className="btn btn-primary" disabled={catched} onClick={(event) => onClick(id)}>
         Catch
-      </a>
+      </button>
 
 </div>
 </React.Fragment>);

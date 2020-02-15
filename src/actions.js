@@ -1,4 +1,4 @@
 export const catchPok = id => ({
     type: 'CATCH',
-    id
+    id: id - 1,
   })

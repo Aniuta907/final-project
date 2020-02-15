@@ -1,16 +1,16 @@
 import { connect } from 'react-redux'
 
-// import { setVisibilityFilter } from '../actions'
+import { catchPok } from '../actions'
 import { PokPortfolio } from './PokPortfolio'
 
 const mapStateToProps = (state, ownProps) => ({
     pokemons: state.pokemons
 })
-// const mapDispatchToProps = (dispatch, ownProps) => ({
-//   onClick: () => dispatch(setVisibilityFilter(ownProps.filter))
-// })
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onClick: (id) => dispatch(catchPok(id))
+})
 
 export const PokPortfolioContainer = connect(
   mapStateToProps,
-//   mapDispatchToProps
+  mapDispatchToProps
 )(PokPortfolio)
