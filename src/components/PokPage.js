@@ -4,7 +4,6 @@ import './PokPage.css';
 
 export function PokPage({ pokemon }) {
 	const { name, picture, caught, id } = pokemon; // потрошим покемона из пропсов на переменные
-	console.log('caught', caught);
 	return (
 		<React.Fragment>
 			<div className="card-deck-wrapper" className="pokDeckWr">

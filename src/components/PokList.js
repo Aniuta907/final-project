@@ -1,27 +1,9 @@
 import React, { Component } from 'react';
-import ReactPaginate from 'react-paginate';
 
 import { Plashka } from './Plashka';
+import { Pagination } from './Pagination';
 
 import './PokList.css';
-
-const Pagination = (props) => {
-	return (
-		<ReactPaginate
-			previousLabel={'previous'}
-			nextLabel={'next'}
-			breakLabel={'...'}
-			breakClassName={'break-me'}
-			pageCount={props.pageCount}
-			marginPagesDisplayed={2}
-			pageRangeDisplayed={5}
-			onPageChange={props.handlePageClick}
-			containerClassName={'pagination'}
-			subContainerClassName={'pages pagination'}
-			activeClassName={'active'}
-		/>
-	);
-};
 
 export class PokList extends Component {
 	state = {
@@ -45,7 +27,9 @@ export class PokList extends Component {
 				<Pagination handlePageClick={this.handlePageClicked} pageCount={Math.ceil(pokemons.length / 8)} />
 				<div class="card-deck-wrapper" className="card-deck-wrapper pokDeckWr">
 					<div class="card-deck">
-						{pokemons1.map((pokemon) => <Plashka pokemon={pokemon} onClick={onClick} saveCurrent={saveCurrent}/>)}
+						{pokemons1.map((pokemon) => (
+							<Plashka pokemon={pokemon} onClick={onClick} saveCurrent={saveCurrent} />
+						))}
 					</div>
 				</div>
 			</React.Fragment>
