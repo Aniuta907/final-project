@@ -10,9 +10,10 @@ for (let i = 1; i <= picLenght; i++) {
 	pictures.push(img);
 }
 const pokemons = data.pokemons.map((pok, i) => ({
-	...pok,
+	...pok, // из json.db: id, name
 	picture: i < picLenght ? pictures[i] : pictures[0],
-	caught: false
+	caught: false,
+	caughtDate: undefined
 }));
 
 export const store = createStore(

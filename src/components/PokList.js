@@ -15,7 +15,6 @@ export class PokList extends Component {
 		this.setState({
 			selectedPage: selected
 		});
-		console.log(selected);
 	};
 
 	render() {

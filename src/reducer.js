@@ -6,6 +6,7 @@ export function reducer(state, action) {
 			const pokemons = [ ...state.pokemons ];
 			const index = pokemons.findIndex((pokemon) => pokemon.id === action.id);
 			pokemons[index].caught = true;
+			pokemons[index].caughtDate = new Date().toLocaleString();
 			return Object.assign({
 				...state, // сначала копируем старый стейт
 				pokemons: [ ...pokemons ] // потом затираем нужный кусок новыми данными
