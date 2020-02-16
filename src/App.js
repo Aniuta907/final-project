@@ -6,6 +6,7 @@ import { store } from './store.js';
 
 import { Menu } from './components/Menu.js';
 import { PokListContainer } from './components/PokListContainer.js';
+import { PokListCaughtContainer } from './components/PokListCaughtContainer.js';
 import { PokPageContainer } from './components/PokPageContainer.js';
 
 import './App.css';
@@ -20,7 +21,7 @@ function App() {
 		{
 			path: '/caught',
 			name: 'Caught pokemons',
-			component: <PokListContainer />
+			component: <PokListCaughtContainer />
 		},
 		{
 			path: '/',
