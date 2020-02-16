@@ -19,14 +19,16 @@ export class PokList extends Component {
 
 	render() {
 		const { pokemons, onClick, saveCurrent } = this.props; // получаем пропсы из контейнера
-		const pokemons1 = pokemons.slice(this.state.selectedPage * 8, this.state.selectedPage * 8 + 8);
-		console.log(Math.ceil(pokemons.length / 8));
+		const pokemonsForOnePage = pokemons.slice(this.state.selectedPage * 8, this.state.selectedPage * 8 + 8);
 		return (
 			<React.Fragment>
-				<Pagination handlePageClick={this.handlePageClicked} pageCount={Math.ceil(pokemons.length / 8)} />
+				{pokemons.length !== 0 ? (
+					<Pagination handlePageClick={this.handlePageClicked} pageCount={Math.ceil(pokemons.length / 8)} />
+				) : null}
+
 				<div class="card-deck-wrapper" className="card-deck-wrapper pokDeckWr">
 					<div class="card-deck">
-						{pokemons1.map((pokemon) => (
+						{pokemonsForOnePage.map((pokemon) => (
 							<Plashka pokemon={pokemon} onClick={onClick} saveCurrent={saveCurrent} />
 						))}
 					</div>
