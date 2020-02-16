@@ -39,10 +39,6 @@
     "fs-extra": "^8.1.0",
     "html-webpack-plugin": "4.0.0-beta.11",
     "identity-obj-proxy": "3.0.0",
-    "jest": "24.9.0",
-    "jest-environment-jsdom-fourteen": "1.0.1",
-    "jest-resolve": "24.9.0",
-    "jest-watch-typeahead": "0.4.2",
     "jquery": "^3.4.1",
     "mini-css-extract-plugin": "0.9.0",
     "node-sass": "^4.13.1",
@@ -70,10 +66,16 @@
     "terser-webpack-plugin": "2.3.4",
     "ts-pnp": "1.1.5",
     "url-loader": "2.3.0",
+    "workbox-webpack-plugin": "4.3.1"
+  },
+  "devDependencies": {
+    "jest": "24.9.0",
+    "jest-environment-jsdom-fourteen": "1.0.1",
+    "jest-resolve": "24.9.0",
+    "jest-watch-typeahead": "0.4.2",
     "webpack": "4.41.5",
     "webpack-dev-server": "3.10.1",
-    "webpack-manifest-plugin": "2.2.0",
-    "workbox-webpack-plugin": "4.3.1"
+    "webpack-manifest-plugin": "2.2.0"
   },
   "eslintConfig": {
     "extends": "react-app"
