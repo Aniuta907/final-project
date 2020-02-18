@@ -4,10 +4,6 @@ import thunk from 'redux-thunk';
 import { reducer } from './reducer';
 import * as data from './db.json';
 
-store = createStore(
-	reducer,
-	applyMiddleware(thunk)
-);
 
 const pictures = [];
 const picLenght = 720; // пока у нас только 720 картинок, для остальных покемонов - показываем первую картинку
@@ -35,7 +31,11 @@ if (stateFromSessionStorage !== null) {
 	id = 1;
 }
 
-export default store;
+
+export const store = createStore(
+	reducer,
+	applyMiddleware(thunk)
+);
 
 // export const store = createStore(
 // 	reducer, // функция, которая обрабатывает actions - действия, которые мы посылаем из компонента при изменении

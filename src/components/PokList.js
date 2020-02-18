@@ -10,6 +10,10 @@ export class PokList extends Component {
 		selectedPage: 0
 	};
 
+	componentDidMount(){
+
+	}
+
 	handlePageClicked = (data) => {
 		let selected = data.selected;
 		this.setState({
@@ -18,6 +22,7 @@ export class PokList extends Component {
 	};
 
 	render() {
+		//console.log(this.props);
 		const { pokemons, onClick, saveCurrent } = this.props; // получаем пропсы из контейнера
 		const pokemonsForOnePage = pokemons.slice(this.state.selectedPage * 8, this.state.selectedPage * 8 + 8);
 		return (
