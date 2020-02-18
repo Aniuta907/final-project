@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Plashka } from './Plashka';
+import { PokemonCard } from './PokemonCard';
 import { Pagination } from './Pagination';
 
 import './PokList.css';
@@ -29,7 +29,7 @@ export class PokList extends Component {
 				<div class="card-deck-wrapper" className="card-deck-wrapper pokDeckWr">
 					<div class="card-deck">
 						{pokemonsForOnePage.map((pokemon) => (
-							<Plashka pokemon={pokemon} onClick={onClick} saveCurrent={saveCurrent} />
+							<PokemonCard pokemon={pokemon} onClick={onClick} saveCurrent={saveCurrent} />
 						))}
 					</div>
 				</div>

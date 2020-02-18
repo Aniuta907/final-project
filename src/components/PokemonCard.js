@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './Plashka.css';
+import './PokemonCard.css';
 
-export function Plashka({ pokemon, onClick, saveCurrent }) {
+export function PokemonCard({ pokemon, onClick, saveCurrent }) {
 	const { name, picture, caught, id } = pokemon; // потрошим покемона из пропсов на переменные
 	return (
 		<React.Fragment>
