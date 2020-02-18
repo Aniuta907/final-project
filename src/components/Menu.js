@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import styles from './Styles.js';
 
@@ -10,7 +10,7 @@ export class Menu extends Component {
 			show: false
 		};
 
-		const menuOptions =this.props.menuOptions;
+		const menuOptions = this.props.menuOptions;
 		const homeOption = menuOptions.pop();
 		menuOptions.unshift(homeOption);
 		this.menuOptions = menuOptions;
@@ -25,7 +25,7 @@ export class Menu extends Component {
 				<button
 					class="navbar-toggler"
 					onClick={() => {
-						this.setState({ show: !this.state.show })
+						this.setState({ show: !this.state.show });
 					}}
 					type="button"
 					data-toggle="collapse"
@@ -34,13 +34,15 @@ export class Menu extends Component {
 					<span class="navbar-toggler-icon" />
 				</button>
 
-				<div className={`collapse ${this.state.show? "show": ""} navbar-collapse`} id="collapsibleNavbar">
+				<div className={`collapse ${this.state.show ? 'show' : ''} navbar-collapse`} id="collapsibleNavbar">
 					<ul class="navbar-nav">
-					{this.menuOptions.map(option => <li class="nav-item">
-													<div class="nav-link" style={styles.item}>
-														<Link to={option.path}>{option.name}</Link>
-													</div>
-												</li>)}
+						{this.menuOptions.map((option) => (
+							<li class="nav-item">
+								<div class="nav-link" style={styles.item}>
+									<Link to={option.path}>{option.name}</Link>
+								</div>
+							</li>
+						))}
 					</ul>
 				</div>
 			</nav>
