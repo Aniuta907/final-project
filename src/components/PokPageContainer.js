@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => {
 	const currentPokId = state.id; // читаем из стейта id текущего покемона
 	const pokemon = state.pokemons; // читаем из стейта массив покемонов
 	
+	//console.log(state);
 	//const index = pokemons.findIndex((pokemon) => pokemon.id === currentPokId); // ищем индекс покемона из адишников равным currentPokId
 
 	return {

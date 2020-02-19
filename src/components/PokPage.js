@@ -2,7 +2,7 @@ import React from 'react';
 
 import './PokPage.css';
 
-export function PokPage({ pokemon }) {
+export function PokPage( pokemon ) {
 	const { name, picture, caught, id, caughtDate } = pokemon; // потрошим покемона из пропсов на переменные
 	return (
 		<React.Fragment>

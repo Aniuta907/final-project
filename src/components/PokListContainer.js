@@ -21,6 +21,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	receivePokemons: () => receivePokemons()
 });
 
-store.dispatch(receivePokemons()).then(() => store.getState());
+//store.dispatch(receivePokemons()).then(() => store.getState());
 
 export const PokListContainer = connect(mapStateToProps, mapDispatchToProps)(PokList);

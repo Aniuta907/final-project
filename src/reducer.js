@@ -40,6 +40,7 @@ export function reducer(state = initialState, action) {
 			};
 
 		case 'GET_POKEMON_BY_ID':
+			console.log(pokemons); //undefined!
 			return { ...state, pokemons: [].find((pokemon) => pokemon.id === action.id) };
 
 		default:

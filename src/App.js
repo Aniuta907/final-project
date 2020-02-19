@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import { store } from './store.js';
+import { default as receivePokemons } from './actions';
 
 import { Menu } from './components/Menu.js';
 import { PokListContainer } from './components/PokListContainer.js';
@@ -11,49 +12,51 @@ import { PokPageContainer } from './components/PokPageContainer.js';
 
 import './App.css';
 
-
-function App() {
+export default class App extends Component {
+	constructor(props) {
+		super(props);
+		this.menuOptions = [
+			{
+				path: '/pokemon',
+				name: 'Pokemon',
+				component: <PokPageContainer />
+			},
+			{
+				path: '/caught',
+				name: 'Caught pokemons',
+				component: <PokListCaughtContainer />
+			},
+			{
+				path: '/',
+				name: 'Home',
+				component: <PokListContainer />
+			}
+		];
+	}
 
 	componentDidMount() {
 		store.dispatch(receivePokemons()).then(() => store.getState());
-	};
+	}
 
-	const menuOptions = [
-		{
-			path: '/pokemon',
-			name: 'Pokemon',
-			component: <PokPageContainer />
-		},
-		{
-			path: '/caught',
-			name: 'Caught pokemons',
-			component: <PokListCaughtContainer />
-		},
-		{
-			path: '/',
-			name: 'Home',
-			component: <PokListContainer />
-		}
-	];
-	return (
-		<Router>
-			<Provider store={store}>
-				<div className="App">
-					<header />
-					<body>
-						<Menu menuOptions={menuOptions} />
-						<Switch>
-							{menuOptions.map((option, index) => (
-								<Route key={index} path={option.path}>
-									{option.component}
-								</Route>
-							))}
-						</Switch>
-					</body>
-				</div>
-			</Provider>
-		</Router>
-	);
+	render() {
+		return (
+			<React.Fragment>
+				<Router>
+					<Provider store={store}>
+						<div className="App">
+							<header />
+								<Menu menuOptions={this.menuOptions} />
+								<Switch>
+									{this.menuOptions.map((option, index) => (
+										<Route key={index} path={option.path}>
+											{option.component}
+										</Route>
+									))}
+								</Switch>
+						</div>
+					</Provider>
+				</Router>
+			</React.Fragment>
+		);
+	}
 }
-
-export default App;
