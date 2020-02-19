@@ -23,7 +23,7 @@ export class PokList extends Component {
 
 	render() {
 		//console.log(this.props);
-		const { pokemons, onClick, saveCurrent } = this.props; // получаем пропсы из контейнера
+		const { pokemons = [], onClick, saveCurrent } = this.props; // получаем пропсы из контейнера
 		const pokemonsForOnePage = pokemons.slice(this.state.selectedPage * 8, this.state.selectedPage * 8 + 8);
 		return (
 			<React.Fragment>

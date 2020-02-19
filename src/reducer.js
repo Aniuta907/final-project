@@ -26,8 +26,8 @@ export function reducer(state = initialState, action) {
 			return newState;
 
 		case 'GET_ALL_POKEMONS' :
-			//console.log(action);
-			return {...state,pokemons: action.pokemon};
+		
+			return {...state,pokemons: action.pokemons};
 		default:
 			return state;
 	}

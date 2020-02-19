@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	receivePokemons: () => receivePokemons()
 });
 
+
 store.dispatch(receivePokemons()).then(() => console.log(store.getState()));
 
 //console.log(store.dispatch(receivePokemons()));
