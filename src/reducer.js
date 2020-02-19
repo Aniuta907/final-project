@@ -1,6 +1,6 @@
 import { catchPok } from './actions';
 
-const initialState= {pokemons: []}
+const initialState = { pokemons: [] };
 
 export function reducer(state = initialState, action) {
 	let newState = {};
@@ -25,9 +25,23 @@ export function reducer(state = initialState, action) {
 			sessionStorage.setItem('pokemons', JSON.stringify(newState));
 			return newState;
 
-		case 'GET_ALL_POKEMONS' :
-		
-			return {...state,pokemons: action.pokemons};
+		case 'GET_ALL_POKEMONS':
+			return { ...state, pokemons: action.pokemons };
+
+		case 'ADD_PICTURES':
+			return {
+				...state,
+				pokemons: Object.assign({}, state).pokemons.map((pok, i) => ({
+					...pok, // из json.db: id, name
+					picture: i < action.picLength ? action.images[i] : action.images[0],
+					caught: false,
+					caughtDate: undefined
+				}))
+			};
+
+		case 'GET_POKEMON_BY_ID':
+			return { ...state, pokemons: action.pokemons.find((pokemon) => pokemon.id === action.id) };
+
 		default:
 			return state;
 	}
