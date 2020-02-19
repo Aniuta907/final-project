@@ -10,7 +10,6 @@ export const saveCurrentPok = (id) => ({
 });
 
 function getAllpokemons(pokemons) {
-	// console.log('fffffff');
 	return (dispatch, getState) => {
 		dispatch({
 			type: 'GET_ALL_POKEMONS',
@@ -45,10 +44,8 @@ export function addPictures() {
 
 export function getPokemonById(id) {
 	return (dispatch, getState) => {
-		let pokemons = getState().pokemons;
 		dispatch({
 			type: 'GET_POKEMON_BY_ID',
-			pokemons,
 			id
 		});
 	};

@@ -11,7 +11,13 @@ import { PokPageContainer } from './components/PokPageContainer.js';
 
 import './App.css';
 
+
 function App() {
+
+	componentDidMount() {
+		store.dispatch(receivePokemons()).then(() => store.getState());
+	};
+
 	const menuOptions = [
 		{
 			path: '/pokemon',
@@ -37,7 +43,11 @@ function App() {
 					<body>
 						<Menu menuOptions={menuOptions} />
 						<Switch>
-							{menuOptions.map((option) => <Route path={option.path}>{option.component}</Route>)}
+							{menuOptions.map((option, index) => (
+								<Route key={index} path={option.path}>
+									{option.component}
+								</Route>
+							))}
 						</Switch>
 					</body>
 				</div>

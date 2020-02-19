@@ -17,13 +17,13 @@ export class Menu extends Component {
 	}
 	render() {
 		return (
-			<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-				<a class="navbar-brand" style={styles.brand}>
+			<nav className="navbar navbar-expand-md bg-dark navbar-dark">
+				<a className="navbar-brand" style={styles.brand}>
 					Pokedex
 				</a>
 
 				<button
-					class="navbar-toggler"
+					className="navbar-toggler"
 					onClick={() => {
 						this.setState({ show: !this.state.show });
 					}}
@@ -31,14 +31,14 @@ export class Menu extends Component {
 					data-toggle="collapse"
 					data-target="#collapsibleNavbar"
 				>
-					<span class="navbar-toggler-icon" />
+					<span className="navbar-toggler-icon" />
 				</button>
 
 				<div className={`collapse ${this.state.show ? 'show' : ''} navbar-collapse`} id="collapsibleNavbar">
-					<ul class="navbar-nav">
-						{this.menuOptions.map((option) => (
-							<li class="nav-item">
-								<div class="nav-link" style={styles.item}>
+					<ul className="navbar-nav">
+						{this.menuOptions.map((option, index) => (
+							<li key={index} className="nav-item">
+								<div className="nav-link" style={styles.item}>
 									<Link to={option.path}>{option.name}</Link>
 								</div>
 							</li>

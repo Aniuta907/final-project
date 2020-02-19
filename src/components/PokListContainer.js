@@ -9,7 +9,6 @@ import { PokList } from './PokList';
 import { store } from '../store';
 
 const mapStateToProps = (state, ownProps) => {
-	console.log(state);
 	return {
 		pokemons: state.pokemons
 	};
@@ -23,7 +22,5 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 store.dispatch(receivePokemons()).then(() => store.getState());
-
-//console.log(store.dispatch(receivePokemons()));
 
 export const PokListContainer = connect(mapStateToProps, mapDispatchToProps)(PokList);
