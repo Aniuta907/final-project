@@ -1,6 +1,6 @@
 import { catchPok } from './actions';
 
-const initialState = { pokemons: [] };
+const initialState = { pokemons: [], currentId:1 };
 
 export function reducer(state = initialState, action) {
 	let newState = {};
@@ -20,8 +20,9 @@ export function reducer(state = initialState, action) {
 		case 'SAVE_CURRENT': // action: перешли на страницу определенного покемона,  должны в id в стейте записать id этого покемона (текщий покемон)
 			newState = {
 				...state, // сначала копируем старый стейт
-				id: action.id // потом затираем нужный кусок новыми данными
+				currentId: action.id // потом затираем нужный кусок новыми данными
 			};
+			//console.log(newState);
 			sessionStorage.setItem('pokemons', JSON.stringify(newState));
 			return newState;
 
@@ -40,8 +41,9 @@ export function reducer(state = initialState, action) {
 			};
 
 		case 'GET_POKEMON_BY_ID':
-			console.log(pokemons); //undefined!
-			return { ...state, pokemons: [].find((pokemon) => pokemon.id === action.id) };
+			//console.log(pokemons); //undefined!
+			//console.log("GET_POKEMON_BY_ID ",state);
+			return { ...state, pokemons: Object.assign({}, state).pokemons.find((pokemon) => pokemon.id ===  state.currentId) };
 
 		default:
 			return state;

@@ -19,13 +19,20 @@ function getAllpokemons(pokemons) {
 	};
 }
 
-export default function receivePokemons() {
+export function receivePokemons() {
 	return (dispatch, getState) => {
 		return fetch('http://localhost:3001/pokemons')
 			.then((response) => response.json())
 			.then((pokemon) => dispatch(getAllpokemons(pokemon)));
 	};
 }
+
+export default function receiveAllPokemons() {
+	return async (dispatch) => {
+	const pokemons = await fetch('http://localhost:3001/pokemons').then(response => response.json());
+	dispatch(getAllpokemons(pokemons))
+	};
+	}
 
 export function addPictures() {
 	const pictures = [];

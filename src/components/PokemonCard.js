@@ -5,6 +5,7 @@ import './PokemonCard.css';
 
 export function PokemonCard({ pokemon, onClick, saveCurrent }) {
 	const { name, picture, caught, id } = pokemon; // потрошим покемона из пропсов на переменные
+	//console.log('name', name);
 	return (
 		<React.Fragment>
 			<div className="card" className="card pokCard">

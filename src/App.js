@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import { store } from './store.js';
-import { default as receivePokemons } from './actions';
+import { default as receiveAllPokemons } from './actions';
 
 import { Menu } from './components/Menu.js';
 import { PokListContainer } from './components/PokListContainer.js';
@@ -35,7 +35,7 @@ export default class App extends Component {
 	}
 
 	componentDidMount() {
-		store.dispatch(receivePokemons()).then(() => store.getState());
+		store.dispatch(receiveAllPokemons());
 	}
 
 	render() {

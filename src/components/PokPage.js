@@ -8,18 +8,15 @@ import './PokPage.css';
 export class PokPage extends Component {
 	constructor(props) {
 		super(props);
-
-		const pokemon = this.props.pokemon;
-		this.pokemon = pokemon;
-		console.log('PokPage', this.pokemon);
 	}
 
 	componentDidMount() {
-		store.dispatch(getPokemonById());
+		store.dispatch(getPokemonById(3));
 	}
 
 	render() {
-		const { name, picture, caught, id, caughtDate } = this.pokemon; // потрошим покемона из пропсов на переменные
+		const {name, picture, caught, id, caughtDate} = this.props.pokemon ? this.props.pokemon : {name :'', picture : '', caught : false, id : 1, caughtDate : ''};
+		console.log('name', name);
 		return (
 			<React.Fragment>
 				<div className="card-deck-wrapper" className="pokDeckWr">

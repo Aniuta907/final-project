@@ -19,7 +19,12 @@ export class PokList extends Component {
 
 	render() {
 		const { pokemons = [], onClick, saveCurrent } = this.props; // получаем пропсы из контейнера
-		const pokemonsForOnePage = pokemons.slice(this.state.selectedPage * 8, this.state.selectedPage * 8 + 8);
+		let pokemonsForOnePage;
+		if (pokemons.length === 0) {
+			pokemonsForOnePage = [];
+		} else {
+			pokemonsForOnePage = pokemons.slice(this.state.selectedPage * 8, this.state.selectedPage * 8 + 8);
+		}
 		return (
 			<React.Fragment>
 				{pokemons.length !== 0 ? (
@@ -29,7 +34,12 @@ export class PokList extends Component {
 				<div className="card-deck-wrapper" className="card-deck-wrapper pokDeckWr">
 					<div className="card-deck">
 						{pokemonsForOnePage.map((pokemon) => (
-							<PokemonCard /* key*/ pokemon={pokemon} key={pokemon.id} onClick={onClick} saveCurrent={saveCurrent} />
+							<PokemonCard
+								pokemon={pokemon}
+								key={pokemon.id}
+								onClick={onClick}
+								saveCurrent={saveCurrent}
+							/>
 						))}
 					</div>
 				</div>

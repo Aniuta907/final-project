@@ -17,6 +17,6 @@ const mapStateToProps = (state, ownProps) => {
 	};
 };
 
-store.dispatch(getPokemonById(1));
+//store.dispatch(getPokemonById(1));
 
 export const PokPageContainer = connect(mapStateToProps)(PokPage);
