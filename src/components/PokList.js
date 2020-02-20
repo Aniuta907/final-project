@@ -18,18 +18,11 @@ export class PokList extends Component {
 	};
 
 	componentDidMount() {
-		// this.props.receivePokemons();
 	}
 
 	render() {
 		const { pokemons = [], onClick, saveCurrent } = this.props;
-		//if (pokemons === null || pokemons === undefined || pokemons.length === 0) return null;
-		// let pokemonsForOnePage;
-		// if (pokemons.length === 0) {
-		// 	pokemonsForOnePage = [];
-		// } else {
 		const pokemonsForOnePage = pokemons.slice(this.state.selectedPage * 8, this.state.selectedPage * 8 + 8);
-		// }
 		return (
 			<React.Fragment>
 				{' '}

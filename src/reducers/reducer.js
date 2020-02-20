@@ -3,20 +3,20 @@ const initialState = { pokemons: [], currentId: 1, pokemon: {}, caughtedPokemons
 export function reducer(state = initialState, action) {
 	let newState = {};
 	switch (action.type) {
-		case 'CATCH': // action: поймали какого-то покемона, должны в стейте изменить у этого покемона caught на true
+		case 'CATCH':
 			const pokemons = [ ...state.pokemons ];
 			const index = pokemons.findIndex((pokemon) => pokemon.id === action.id);
 			pokemons[index].caught = true;
 			pokemons[index].caughtDate = new Date().toLocaleString();
 
 			newState = {
-				...state, // сначала копируем старый стейт
+				...state,
 				pokemons: [ ...pokemons ],
-				caughtedPokemons: [ ...pokemons ].filter((pokemon) => pokemon.caught === true) // потом затираем нужный кусок новыми данными
+				caughtedPokemons: [ ...pokemons ].filter((pokemon) => pokemon.caught === true)
 			};
 
 			return newState;
-		case 'SAVE_CURRENT': // action: перешли на страницу определенного покемона, должны в id в стейте записать id этого покемона (текщий покемон)
+		case 'SAVE_CURRENT':
 			newState = {
 				...state,
 				currentId: action.id

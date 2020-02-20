@@ -1,3 +1,9 @@
+How to run Pokedex app
+
+npm run install
+npm run json
+npm run start
+
 # Final project
 
 Это последнее задание в курсе. Дедлайн - **21/02**!

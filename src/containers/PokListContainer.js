@@ -15,8 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onClick: (id) => dispatch(catchPok(id)), // для поимки покемона
-    saveCurrent: (id) => dispatch(saveCurrentPok(id)), // для записи в стейт текущего покемона
+    onClick: (id) => dispatch(catchPok(id)),
+    saveCurrent: (id) => dispatch(saveCurrentPok(id)),
     receivePokemons: () => dispatch(receiveAllPokemons())
 });
 
