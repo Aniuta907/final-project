@@ -18,7 +18,8 @@ export class PokList extends Component {
 	};
 
 	render() {
-		const { pokemons = [], onClick, saveCurrent } = this.props; // получаем пропсы из контейнера
+		const { pokemons = [], onClick, saveCurrent } = this.props;
+		//if (pokemons === null || pokemons === undefined || pokemons.length === 0) return null;
 		let pokemonsForOnePage;
 		if (pokemons.length === 0) {
 			pokemonsForOnePage = [];

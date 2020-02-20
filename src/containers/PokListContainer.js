@@ -1,12 +1,10 @@
 import { connect } from 'react-redux';
 
-import { catchPok, saveCurrentPok, addPictures } from '../actions';
+import { catchPok, saveCurrentPok, addPictures } from '../actions/actions';
 
-import { default as receivePokemons } from '../actions';
+import { default as receivePokemons } from '../actions/actions';
 
-import { PokList } from './PokList';
-
-import { store } from '../store';
+import { PokList } from '../components/PokList';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
@@ -17,10 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	onClick: (id) => dispatch(catchPok(id)), // для поимки покемона
 	saveCurrent: (id) => dispatch(saveCurrentPok(id)), // для записи в стейт текущего покемона
-	//getAllPokemons: () => getAllPokemonsAction(),
 	receivePokemons: () => receivePokemons()
 });
-
-//store.dispatch(receivePokemons()).then(() => store.getState());
 
 export const PokListContainer = connect(mapStateToProps, mapDispatchToProps)(PokList);

@@ -1,13 +1,13 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import { reducer } from './reducer';
-import * as data from './db.json';
+import { reducer } from '../reducers/reducer';
+import * as data from '../db.json';
 
 const pictures = [];
 const picLenght = 720; // пока у нас только 720 картинок, для остальных покемонов - показываем первую картинку
 for (let i = 1; i <= picLenght; i++) {
-	var img = require(`./pokemons/${i}.png`);
+	var img = require(`../pokemons/${i}.png`);
 	pictures.push(img);
 }
 
@@ -17,6 +17,7 @@ for (let i = 1; i <= picLenght; i++) {
 const stateFromSessionStorage = JSON.parse(sessionStorage.getItem('pokemons'));
 let pokemons;
 let id;
+
 if (stateFromSessionStorage !== null) {
 	// если в сешн сторадж есть покемоны и id - берем оттуда стейт
 	pokemons = stateFromSessionStorage.pokemons;

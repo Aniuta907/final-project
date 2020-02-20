@@ -38,7 +38,7 @@ export function addPictures() {
 	const pictures = [];
 	const picLenght = 720; // пока у нас только 720 картинок, для остальных покемонов - показываем первую картинку
 	for (let i = 1; i <= picLenght; i++) {
-		var img = require(`./pokemons/${i}.png`);
+		var img = require(`../pokemons/${i}.png`);
 		pictures.push(img);
 	}
 

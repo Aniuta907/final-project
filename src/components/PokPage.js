@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { store } from '../store';
-import { getPokemonById } from '../actions';
+import { store } from '../store/store';
+import { getPokemonById } from '../actions/actions';
 
 import './PokPage.css';
 
@@ -16,7 +16,6 @@ export class PokPage extends Component {
 
 	render() {
 		const {name, picture, caught, id, caughtDate} = this.props.pokemon ? this.props.pokemon : {name :'', picture : '', caught : false, id : 1, caughtDate : ''};
-		console.log('name', name);
 		return (
 			<React.Fragment>
 				<div className="card-deck-wrapper" className="pokDeckWr">

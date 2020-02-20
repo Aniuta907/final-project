@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import { catchPok, saveCurrentPok } from '../actions';
-import { PokList } from './PokList';
+import { catchPok, saveCurrentPok } from '../actions/actions';
+import { PokList } from '../components/PokList';
 
 const mapStateToProps = (state, ownProps) => ({
 	pokemons: state.pokemons.filter((pokemon) => pokemon.caught === true) //  передаем отфильтрованные данные: только пойманных покемонов

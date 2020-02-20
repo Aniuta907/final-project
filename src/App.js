@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import { store } from './store.js';
-import { default as receiveAllPokemons } from './actions';
+import { store } from './store/store.js';
+import { default as receiveAllPokemons } from './actions/actions';
 
 import { Menu } from './components/Menu.js';
-import { PokListContainer } from './components/PokListContainer.js';
-import { PokListCaughtContainer } from './components/PokListCaughtContainer.js';
-import { PokPageContainer } from './components/PokPageContainer.js';
+import { PokListContainer } from './containers/PokListContainer.js';
+import { PokListCaughtContainer } from './containers/PokListCaughtContainer.js';
+import { PokPageContainer } from './containers/PokPageContainer.js';
 
 import './App.css';
 
