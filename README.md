@@ -1,8 +1,8 @@
 How to run Pokedex app
 
-npm run install
-npm run json
-npm run start
+1) npm run install,
+2) npm run json,
+3) npm run start
 
 # Final project
 
