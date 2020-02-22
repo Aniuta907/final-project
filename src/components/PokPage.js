@@ -6,8 +6,6 @@ import { getPokemonById } from '../actions/actions';
 import './PokPage.css';
 
 export class PokPage extends Component {
-
-
 	componentDidMount() {
 		store.dispatch(getPokemonById());
 	}
@@ -17,9 +15,9 @@ export class PokPage extends Component {
 		return (
 			<React.Fragment>
 				<div className="card-deck-wrapper pokDeckWr">
-					<div className="card-deck">
+					<div className="card-deck cardPok">
 						<div className="divImg">
-							<img src={picture} className="pokImg" alt="Card-img" />
+							<img src={picture} className="pokiImg" alt="Card-img" />
 						</div>
 						<div className="card divInf">
 							<p className="pokName"> ID: {id} </p> <p className="pokName"> Name: {name} </p>

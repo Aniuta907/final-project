@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import { reducer } from '../reducers/reducer';
 import * as data from '../db.json';
 import { loadState, saveState } from './sessionStorage';
+
 const pictures = [];
 const picLenght = 720;
 for (let i = 1; i <= picLenght; i++) {

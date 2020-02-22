@@ -2,7 +2,7 @@
 	color: #01796f;
 }
 
-.pokImg {
+.pokiImg {
 	width: 300px;
 }
 
@@ -18,5 +18,9 @@
 	align-items: center;
 	vertical-align: middle;
 	margin-top: 20px;
-	padding: 20px;
+	padding-top: 60px;
+}
+
+.cardPok{
+	padding-left: 3%;
 }

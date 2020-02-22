@@ -10,15 +10,14 @@ export function PokemonCard({ pokemon, onClick, saveCurrent }) {
 			<div className="card pokCard">
 				<div className="card card-block text-center">
 					<Link to={'/pokemon'} onClick={(event) => saveCurrent(id)}>
-						Pokemon info
+					{name}
 					</Link>
 				</div>
 
 				<div className="card card-block text-center">
-					<img src={picture} className="pokImg" alt="Card-img" />
-					<p className="pokName card-text">
-						name: {name}
-					</p>
+					<div>
+						<img src={picture} className="pokImg" alt="Card-img" />
+					</div>
 					<button className="btn btn-primary" disabled={caught} onClick={(event) => onClick(id)}>
 						Catch
 					</button>

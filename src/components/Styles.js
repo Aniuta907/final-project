@@ -1,14 +1,14 @@
 const brand = {
-	color: "Aquamarine"
-}
+	color: 'Aquamarine'
+};
 
 const item = {
-	color: "Aquamarine"
-}
+	color: 'Aquamarine'
+};
 
 const styles = {
-  brand: brand,
-  item: item
-}
+	brand: brand,
+	item: item
+};
 
 export default styles;
