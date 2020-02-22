@@ -17,9 +17,6 @@ export class PokList extends Component {
 		});
 	};
 
-	componentDidMount() {
-	}
-
 	render() {
 		const { pokemons = [], onClick, saveCurrent } = this.props;
 		const pokemonsForOnePage = pokemons.slice(this.state.selectedPage * 8, this.state.selectedPage * 8 + 8);
@@ -29,8 +26,8 @@ export class PokList extends Component {
 				{pokemons.length !== 0 ? (
 					<Pagination handlePageClick={this.handlePageClicked} pageCount={Math.ceil(pokemons.length / 8)} />
 				) : null}
-				<div className="card-deck-wrapper" className="card-deck-wrapper pokDeckWr">
-					<div className="card-deck">
+				<div className="card-deck-wrapper pokDeckWr">
+					<div className="card-deck pokCardDeck">
 						{' '}
 						{pokemonsForOnePage.map((pokemon) => (
 							<PokemonCard

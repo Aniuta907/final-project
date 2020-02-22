@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactPaginate from 'react-paginate';
-
-import './Pagination.css';
 
 export function Pagination(props) {
 	return (
 		<ReactPaginate
-		previousLinkClassName = {"page-link"}
+			previousLinkClassName={'page-link'}
 			previousLabel={'previous'}
-			nextLabel={"next"}
+			nextLabel={'next'}
 			nextLinkClassName={'page-link'}
 			breakLabel={'...'}
 			breakClassName={'break-me'}
@@ -16,9 +14,9 @@ export function Pagination(props) {
 			pageClassName={'page-item'}
 			pageCount={props.pageCount}
 			marginPagesDisplayed={3}
-			pageRangeDisplayed={4}
+			pageRangeDisplayed={2}
 			onPageChange={props.handlePageClick}
-			containerClassName={'pagination d-flex justify-content-center mt-3'}
+			containerClassName={'pagination pagination-sm d-flex justify-content-center mt-3'}
 			subContainerClassName={'pagination justify-content-center'}
 			activeClassName={'active'}
 		/>

@@ -4,6 +4,10 @@
 	padding: 7px;
 }
 
+.pokCardDeck{
+	width: 100%;
+}
+
 .pokDeckWr{
 	display: flex;
 	flex-wrap: wrap;

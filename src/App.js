@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import { store } from './store/store.js';
 
@@ -11,10 +11,8 @@ import { PokPageContainer } from './containers/PokPageContainer.js';
 
 import './App.css';
 
-export default class App extends Component {
-	constructor(props) {
-		super(props);
-		this.menuOptions = [
+export default function App() {
+		const menuOptions = [
 			{
 				path: '/pokemon',
 				name: 'Pokemon',
@@ -31,20 +29,15 @@ export default class App extends Component {
 				component: <PokListContainer />
 			}
 		];
-	}
 
-	componentDidMount() {}
-
-	render() {
 		return (
-			<React.Fragment>
 				<Router>
 					<Provider store={store}>
 						<div className="App">
 							<header />
-							<Menu menuOptions={this.menuOptions} />
+							<Menu menuOptions={menuOptions} />
 							<Switch>
-								{this.menuOptions.map((option, index) => (
+								{menuOptions.map((option, index) => (
 									<Route key={index} path={option.path}>
 										{option.component}
 									</Route>
@@ -53,7 +46,5 @@ export default class App extends Component {
 						</div>
 					</Provider>
 				</Router>
-			</React.Fragment>
 		);
 	}
-}

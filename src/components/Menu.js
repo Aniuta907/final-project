@@ -18,7 +18,7 @@ export class Menu extends Component {
 	render() {
 		return (
 			<nav className="navbar navbar-expand-md bg-dark navbar-dark">
-				<a className="navbar-brand" style={styles.brand}>
+				<a className="navbar-brand" style={styles.brand} href="">
 					Pokedex
 				</a>
 
