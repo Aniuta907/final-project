@@ -14,6 +14,11 @@ import './App.css';
 export default function App() {
 	const menuOptions = [
 		{
+			path: '/',
+			name: 'Home',
+			component: <PokListContainer />
+		},
+		{
 			path: '/pokemon',
 			name: 'Pokemon',
 			component: <PokPageContainer />
@@ -22,11 +27,6 @@ export default function App() {
 			path: '/caught',
 			name: 'Caught pokemons',
 			component: <PokListCaughtContainer />
-		},
-		{
-			path: '/',
-			name: 'Home',
-			component: <PokListContainer />
 		}
 	];
 
@@ -38,7 +38,7 @@ export default function App() {
 					<Menu menuOptions={menuOptions} />
 					<Switch>
 						{menuOptions.map((option, index) => (
-							<Route key={index} path={option.path}>
+							<Route exact key={index} path={option.path}>
 								{option.component}
 							</Route>
 						))}

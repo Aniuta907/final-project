@@ -1,4 +1,4 @@
-const initialState = { pokemons: [], currentId: 1, pokemon: {}, caughtedPokemons: [] };
+const initialState = { pokemons: [], currentId: 1, pokemon: {}, caughtPokemons: [] };
 
 export function reducer(state = initialState, action) {
 	let newState = {};
@@ -12,7 +12,7 @@ export function reducer(state = initialState, action) {
 			newState = {
 				...state,
 				pokemons: [ ...pokemons ],
-				caughtedPokemons: [ ...pokemons ].filter((pokemon) => pokemon.caught === true)
+				caughtPokemons: [ ...pokemons ].filter((pokemon) => pokemon.caught === true)
 			};
 
 			return newState;

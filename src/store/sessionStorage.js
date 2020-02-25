@@ -1,11 +1,7 @@
 export const loadState = () => {
 	try {
 		const serializedState = sessionStorage.getItem('pokemons');
-		if (serializedState === null) {
-			return undefined;
-		}
-
-		return JSON.parse(serializedState);
+		return serializedState === null ? undefined : JSON.parse(serializedState);
 	} catch (error) {
 		return undefined;
 	}

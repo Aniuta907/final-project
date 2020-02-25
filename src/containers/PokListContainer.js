@@ -5,13 +5,13 @@ import { receiveAllPokemons } from '../actions/actions';
 import { PokList } from '../components/PokList';
 import { store } from '../store/store';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 	return {
 		pokemons: state.pokemons
 	};
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
 	onClick: (id) => dispatch(catchPok(id)),
 	saveCurrent: (id) => dispatch(saveCurrentPok(id)),
 	receivePokemons: () => dispatch(receiveAllPokemons())

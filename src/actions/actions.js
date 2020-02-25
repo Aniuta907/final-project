@@ -9,7 +9,7 @@ export const saveCurrentPok = (id) => ({
 });
 
 function getAllpokemons(pokemons) {
-	return (dispatch, getState) => {
+	return (dispatch) => {
 		dispatch({
 			type: 'GET_ALL_POKEMONS',
 			pokemons: pokemons
@@ -19,7 +19,7 @@ function getAllpokemons(pokemons) {
 }
 
 export function receivePokemons() {
-	return (dispatch, getState) => {
+	return (dispatch) => {
 		return fetch('http://localhost:3001/pokemons')
 			.then((response) => response.json())
 			.then((pokemon) => dispatch(getAllpokemons(pokemon)));

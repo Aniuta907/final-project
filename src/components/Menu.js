@@ -11,16 +11,14 @@ export class Menu extends Component {
 		};
 
 		const menuOptions = this.props.menuOptions;
-		const homeOption = menuOptions.pop();
-		menuOptions.unshift(homeOption);
 		this.menuOptions = menuOptions;
 	}
 	render() {
 		return (
 			<nav className="navbar navbar-expand-md bg-dark navbar-dark">
-				<a className="navbar-brand" style={styles.brand} href="">
+				<span className="navbar-brand" style={styles.brand}>
 					Pokedex
-				</a>
+				</span>
 
 				<button
 					className="navbar-toggler"

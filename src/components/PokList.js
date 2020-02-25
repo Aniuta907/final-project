@@ -5,6 +5,8 @@ import { Pagination } from './Pagination';
 
 import './PokList.css';
 
+const pokemonNumberPerPage = 8;
+
 export class PokList extends Component {
 	state = {
 		selectedPage: 0
@@ -19,16 +21,14 @@ export class PokList extends Component {
 
 	render() {
 		const { pokemons = [], onClick, saveCurrent } = this.props;
-		const pokemonsForOnePage = pokemons.slice(this.state.selectedPage * 8, this.state.selectedPage * 8 + 8);
+		const pokemonsForOnePage = pokemons.slice(this.state.selectedPage * pokemonNumberPerPage, this.state.selectedPage * pokemonNumberPerPage + 8);
 		return (
 			<React.Fragment>
-				{' '}
 				{pokemons.length !== 0 ? (
 					<Pagination handlePageClick={this.handlePageClicked} pageCount={Math.ceil(pokemons.length / 8)} />
 				) : null}
 				<div className="card-deck-wrapper pokDeckWr">
 					<div className="card-deck pokCardDeck">
-						{' '}
 						{pokemonsForOnePage.map((pokemon) => (
 							<PokemonCard
 								pokemon={pokemon}
@@ -36,9 +36,9 @@ export class PokList extends Component {
 								onClick={onClick}
 								saveCurrent={saveCurrent}
 							/>
-						))}{' '}
-					</div>{' '}
-				</div>{' '}
+						))}
+					</div>
+				</div>
 			</React.Fragment>
 		);
 	}
