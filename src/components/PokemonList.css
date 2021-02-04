@@ -1,5 +1,4 @@
 .pokCard {
-	outline: 2px solid Aquamarine;
 	margin: 10px;
 	padding: 7px;
 }
@@ -20,10 +19,14 @@
 	color: #01796f;
 }
 
-.pokImg{
+.pokImg {
 	width: 200px;
 }
 
-.catchBtn{
-	background-color: #01796f;
+.dark-wrapper {
+	background: linear-gradient(to top left, #6c757d17, rgb(35, 22, 121));
+}
+
+.light-wrapper {
+	background: linear-gradient(to top left, #9cb4cc, rgb(255, 255, 255));
 }

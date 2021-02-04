@@ -1,5 +1,4 @@
 .pokCard {
-	outline: 2px solid Aquamarine;
 	margin: 10px;
 	padding: 7px;
 	max-width: 300px;
@@ -14,6 +13,10 @@
 	max-width: 65%;
 }
 
-.catchBtn{
-	background-color: #01796f;
+.darkBtn {
+	background: linear-gradient(to top left, #fdf6e9, rgb(105, 92, 194));
+}
+
+.lightBtn {
+	background: linear-gradient(to top left, #9cb4cc, rgb(255, 255, 255));
 }
