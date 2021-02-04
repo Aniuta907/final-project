@@ -16,7 +16,7 @@ export function Pagination(props) {
 			marginPagesDisplayed={3}
 			pageRangeDisplayed={2}
 			onPageChange={props.handlePageClick}
-			containerClassName={'pagination pagination-sm d-flex justify-content-center mt-3'}
+			containerClassName={'pagination pagination-sm d-flex justify-content-center mt-0'}
 			subContainerClassName={'pagination justify-content-center'}
 			activeClassName={'active'}
 		/>
