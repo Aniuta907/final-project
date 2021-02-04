@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { catchPok, saveCurrentPok } from '../actions/actions';
 import { receiveAllPokemons } from '../actions/actions';
-import { PokList } from '../components/PokList';
+import { PokemonList } from '../components/PokemonList';
 import { store } from '../store/store';
 
 const mapStateToProps = (state) => {
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 store.dispatch(receiveAllPokemons());
-export const PokListContainer = connect(mapStateToProps, mapDispatchToProps)(PokList);
+export const PokListContainer = connect(mapStateToProps, mapDispatchToProps)(PokemonList);

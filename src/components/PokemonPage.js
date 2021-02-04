@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { store } from '../store/store';
 import { getPokemonById } from '../actions/actions';
 
-import './PokPage.css';
+import './PokemonPage.css';
 
-export class PokPage extends Component {
+export class PokemonPage extends Component {
 	componentDidMount() {
 		store.dispatch(getPokemonById());
 	}
