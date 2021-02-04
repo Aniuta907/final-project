@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import { PokemonCard } from './PokemonCard';
 import { Pagination } from './Pagination';
 
-import './PokList.css';
+import './PokemonList.css';
 
 const pokemonNumberPerPage = 8;
 
-export class PokList extends Component {
+export class PokemonList extends Component {
 	state = {
 		selectedPage: 0
 	};
