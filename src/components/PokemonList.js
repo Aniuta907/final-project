@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import { PokemonCard } from './PokemonCard';
 import { Pagination } from './Pagination';
@@ -9,51 +10,41 @@ import './Modal.css';
 
 const pokemonNumberPerPage = 8;
 
-export class PokemonList extends Component {
-	constructor (props) {
-		super(props);
-		this.state = {
-			selectedPage: 0,
-			currentTheme: "dark",
-			showModal: false
-		};
-		this.changeTheme = this.changeTheme.bind(this);
-		this.toggleModal = this.toggleModal.bind(this);
-	};
+export function PokemonList(props) {
+	const [selectedPage, handlePageClicked] = useState(0);
+	const [currentTheme, changeTheme] = useState("dark");
+	const [showModal, toggleModal] = useState(false);
+	const { pokemons = [], onClick, saveCurrent } = props;
+	const pokemonsForOnePage = pokemonPerPage(selectedPage);
+	const [poks, updatePokemons] = useState(pokemonsForOnePage);
 
-	handlePageClicked = (data) => {
-		let selected = data.selected;
-		this.setState({
-			selectedPage: selected
-		});
-	};
+	function pokemonPerPage(selectedPage) {
+		return pokemons.slice(selectedPage * pokemonNumberPerPage, selectedPage * pokemonNumberPerPage + 8);
+	}
 
-	changeTheme() {
-		let theme = this.state.currentTheme === 'dark' ? 'light' : 'dark'
-		this.setState({
-			currentTheme: theme
+
+	function handleOnDragEnd(result) {
+		if (!result.destination) return;
+		const items = Array.from(poks);
+		const [reorderedItem] = items.splice(result.source.index, 1);
+		items.splice(result.destination.index, 0, reorderedItem);
+		updatePokemons(items);
+		items.map((item, i) => {
+			pokemons.splice(selectedPage * pokemonNumberPerPage + i, 1, item);
 		})
 	}
 
-	toggleModal = () => {
-		this.setState({
-		   showModal: !this.state.showModal
-		})
-	};
-
-	render() {
-		const { showModal } = this.state;
-		const { pokemons = [], onClick, saveCurrent } = this.props;
-		const pokemonsForOnePage = pokemons.slice(this.state.selectedPage * pokemonNumberPerPage, this.state.selectedPage * pokemonNumberPerPage + 8);
-		return (
-			<div className={ this.state.currentTheme === 'dark' ? 'dark-wrapper' : 'light-wrapper' }>
+	return (
+			<div className={ currentTheme === 'dark' ? 'dark-wrapper' : 'light-wrapper' }>
 				{pokemons.length !== 0 ? (
-					<Pagination handlePageClick={this.handlePageClicked} pageCount={Math.ceil(pokemons.length / 8)} />
+					<Pagination handlePageClick={(data) => {handlePageClicked(data.selected); updatePokemons(pokemonPerPage(data.selected))}} pageCount={Math.ceil(pokemons.length / 8)} />
 				) : null}
-  				<button onClick={this.changeTheme} className={this.state.currentTheme === 'dark' ? 'btn btn-light' : 'btn btn-secondary'}>
+
+  				<button onClick={() => changeTheme((currentTheme === 'dark') ? 'light' : 'dark')} className={currentTheme === 'dark' ? 'btn btn-light' : 'btn btn-secondary'}>
 					Change theme
 				</button>
-				<button className={this.state.currentTheme === 'dark' ? 'btn btn-light' : 'btn btn-secondary'} onClick={this.toggleModal}>
+
+				<button className={currentTheme === 'dark' ? 'btn btn-light' : 'btn btn-secondary'} onClick={() => toggleModal(!showModal)}>
             		{!showModal ? 'Open modal': 'Close modal'} 
          		</button> 
             	{ 
@@ -65,27 +56,44 @@ export class PokemonList extends Component {
                      			<p>Are you sure? </p> 
                      			<button 
                         			className = "modal-close" 
-                        			onClick = {this.toggleModal} 
+                        			onClick = {() => toggleModal()} 
                      			> X </button>
 							</div>
 							</div>
                   		</Modal> 
                		): null 
             	} 
+
 				<div className="card-deck-wrapper pokDeckWr">
-					<div className="card-deck pokCardDeck">
-						{pokemonsForOnePage.map((pokemon) => (
-							<PokemonCard
-								pokemon={pokemon}
-								key={pokemon.id}
-								onClick={onClick}
-								saveCurrent={saveCurrent}
-								currentTheme={this.state.currentTheme}
-							/>
+					<DragDropContext onDragEnd={handleOnDragEnd}>
+					<Droppable droppableId="pokemons">
+					{(provided) => (
+					<div className="card-deck pokCardDeck" {...provided.droppableProps} ref={provided.innerRef}>
+						{
+						poks.map((pokemon, index) => (
+							<Draggable key={pokemon.id} draggableId={pokemon.id.toString()} index={index}>
+      						{(provided) => (
+								<div 								
+									ref={provided.innerRef} 
+									{...provided.draggableProps} 
+									{...provided.dragHandleProps}>
+									<PokemonCard
+										pokemon={pokemon}
+										key={pokemon.id}
+										onClick={onClick}
+										saveCurrent={saveCurrent}
+										currentTheme={currentTheme}
+									/>
+								</div>
+							)}
+							</Draggable>
 						))}
+						{provided.placeholder}
 					</div>
+					)}
+					</Droppable>
+					</DragDropContext>
 				</div>
 			</div>
-		);
-	}
+	);
 }
