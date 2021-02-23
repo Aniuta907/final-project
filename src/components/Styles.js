@@ -6,9 +6,14 @@ const item = {
 	color: 'Aquamarine'
 };
 
+const menu = {
+	height: '60px'
+};
+
 const styles = {
 	brand: brand,
-	item: item
+	item: item,
+	menu: menu
 };
 
 export default styles;
